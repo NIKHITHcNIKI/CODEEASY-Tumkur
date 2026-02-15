@@ -2,31 +2,58 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Briefcase, Code, Shield, ArrowLeft, ArrowRight, Clock, Users, IndianRupee, GraduationCap } from 'lucide-react';
-import courseProgrammingImg from '@/assets/course-programming.jpg';
-import courseCybersecurityImg from '@/assets/course-cybersecurity.jpg';
+import { Briefcase, Code, IndianRupee, GraduationCap, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import courseTechnicalImg from '@/assets/course-technical-training.jpg';
 import courseFinanceImg from '@/assets/course-finance-detail.jpg';
-import courseExamImg from '@/assets/course-exam-counseling.jpg';
+import courseCompetitiveImg from '@/assets/course-competitive-exam.jpg';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const collegeCategories = [
-  { icon: Code, title: 'Programming & Web Dev', tagline: 'Full Stack Development', description: 'Master front-end, back-end, and full-stack development with modern technologies and frameworks.', courses: ['HTML/CSS/JS', 'React', 'Node.js', 'Python', 'Database'], duration: '6 months', audience: 'Graduates', link: null, image: courseProgrammingImg },
-  { icon: Shield, title: 'Cybersecurity', tagline: 'Secure the Digital World', description: 'Learn network security, ethical hacking, threat analysis, and security operations.', courses: ['Ethical Hacking', 'Network Security', 'Threat Analysis', 'SOC Operations'], duration: '4 months', audience: 'IT Students', link: null, image: courseCybersecurityImg },
-  { icon: IndianRupee, title: 'Finance', tagline: 'Master Financial Skills', description: 'Comprehensive finance training covering taxation, accounting, and business economics for a strong career foundation.', courses: ['Income Tax', 'GST', 'Accounts', 'Business Economics', 'Statistics'], duration: '3-6 months', audience: 'Commerce Graduates', link: '/courses/finance', image: courseFinanceImg },
-  { icon: GraduationCap, title: 'Executive Exam Counseling', tagline: 'Crack Competitive Exams', description: 'Expert guidance and structured preparation for executive-level competitive exams with proven strategies.', courses: ['PGCET M.Tech', 'PGCET MBA', 'Mock Tests', 'Interview Prep'], duration: '3-6 months', audience: 'Graduates', link: '/courses/exam-counseling', image: courseExamImg },
+  {
+    icon: Code,
+    title: 'Technical',
+    tagline: 'Master In-Demand Tech Skills',
+    description: 'Industry-ready technical training in core programming languages, AI, cybersecurity, and personality development.',
+    courses: ['Core Languages', 'AI', 'Cyber Security', 'Personality Development'],
+    duration: '3-6 months',
+    audience: 'College & Graduates',
+    link: '/courses/technical',
+    image: courseTechnicalImg,
+  },
+  {
+    icon: IndianRupee,
+    title: 'Finance',
+    tagline: 'Master Financial Skills',
+    description: 'Comprehensive finance training covering taxation, accounting, economics, and business statistics.',
+    courses: ['Income Tax', 'GST', 'Accounts', 'Economics', 'Business', 'Statistics'],
+    duration: '3-6 months',
+    audience: 'Commerce Graduates',
+    link: '/courses/finance',
+    image: courseFinanceImg,
+  },
+  {
+    icon: GraduationCap,
+    title: 'Competitive Exam',
+    tagline: 'Crack Entrance Exams',
+    description: 'Expert guidance and structured preparation for PGCET MBA and PGCET MCA entrance exams.',
+    courses: ['PGCET MBA', 'PGCET MCA'],
+    duration: '3-6 months',
+    audience: 'Graduates',
+    link: '/courses/exam-counseling',
+    image: courseCompetitiveImg,
+  },
 ];
 
 const CategoryCard = ({ category, index }: { category: typeof collegeCategories[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const navigate = useNavigate();
-  const handleClick = () => { if (category.link) { navigate(category.link); } else { window.location.href = '/#contact'; } };
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={handleClick}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => navigate(category.link)}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
-        <div className="h-44 overflow-hidden"><img src={category.image} alt={category.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
+        <div className="h-48 overflow-hidden"><img src={category.image} alt={category.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
         <div className="p-6">
           <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center shadow-lg mb-4 -mt-12 relative z-10 border-4 border-card"><category.icon className="w-7 h-7 text-primary-foreground" /></div>
           <h3 className="text-xl font-bold font-display mb-1">{category.title}</h3>
@@ -37,7 +64,7 @@ const CategoryCard = ({ category, index }: { category: typeof collegeCategories[
             <div className="flex items-center gap-1.5 text-muted-foreground"><Users className="w-4 h-4 text-primary" /><span>{category.audience}</span></div>
           </div>
           <div className="flex flex-wrap gap-2 mb-4">{category.courses.map((course) => (<span key={course} className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">{course}</span>))}</div>
-          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">{category.link ? 'Explore' : 'Enquire Now'}<ArrowRight className="w-4 h-4" /></div>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">Explore<ArrowRight className="w-4 h-4" /></div>
         </div>
       </div>
     </motion.div>
@@ -68,7 +95,7 @@ const CollegePrograms = () => {
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Choose Your Career Path</h2>
             <p className="text-muted-foreground">Explore our specialized programs with placement assistance</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">{collegeCategories.map((category, index) => (<CategoryCard key={category.title} category={category} index={index} />))}</div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">{collegeCategories.map((category, index) => (<CategoryCard key={category.title} category={category} index={index} />))}</div>
         </div>
       </section>
       <section className="py-16 bg-muted">
