@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { GraduationCap, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import courseExamImg from '@/assets/course-exam-counseling.jpg';
-import coursePgcetImg from '@/assets/course-pgcet.jpg';
+import courseCompetitiveImg from '@/assets/course-competitive-exam.jpg';
 import coursePgcetMbaImg from '@/assets/course-pgcet-mba.jpg';
+import coursePgcetMcaImg from '@/assets/course-pgcet-mca.jpg';
 
 const examCourses = [
-  { title: 'PGCET M.Tech Entrance', description: 'Structured preparation for PGCET M.Tech entrance exam with expert coaching, mock tests, and proven strategies.', image: coursePgcetImg, duration: '3 months', audience: 'Engineering Graduates' },
-  { title: 'PGCET MBA Entrance', description: 'Comprehensive MBA entrance preparation covering quantitative aptitude, verbal ability, logical reasoning, and GD/PI training.', image: coursePgcetMbaImg, duration: '3 months', audience: 'All Graduates' },
+  { title: 'PGCET MBA', description: 'Comprehensive MBA entrance preparation covering quantitative aptitude, verbal ability, logical reasoning, and GD/PI training.', image: coursePgcetMbaImg, duration: '3 months', audience: 'All Graduates' },
+  { title: 'PGCET MCA', description: 'Structured preparation for PGCET MCA entrance exam with expert coaching in mathematics, computer science, and analytical reasoning.', image: coursePgcetMcaImg, duration: '3 months', audience: 'BCA/BSc Graduates' },
 ];
 
 const CourseCard = ({ course, index }: { course: typeof examCourses[0]; index: number }) => {
@@ -43,14 +43,14 @@ const ExamCounseling = () => {
     <div className="min-h-screen">
       <Navbar />
       <section className="relative pt-24 pb-12 bg-muted overflow-hidden">
-        <div className="absolute inset-0 opacity-10"><img src={courseExamImg} alt="" className="w-full h-full object-cover" /></div>
+        <div className="absolute inset-0 opacity-10"><img src={courseCompetitiveImg} alt="" className="w-full h-full object-cover" /></div>
         <div className="container mx-auto px-4 relative z-10">
           <button onClick={() => navigate('/courses/college')} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"><ArrowLeft className="w-4 h-4" />Back to College Programs</button>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center"><GraduationCap className="w-8 h-8 text-primary-foreground" /></div>
-            <div><h1 className="text-3xl md:text-4xl font-bold font-display">Executive Exam Counseling</h1><p className="text-muted-foreground">Crack Competitive Entrance Exams</p></div>
+            <div><h1 className="text-3xl md:text-4xl font-bold font-display">Competitive Exam Coaching</h1><p className="text-muted-foreground">Crack Entrance Exams</p></div>
           </motion.div>
-          <p className="text-lg text-muted-foreground max-w-2xl">Expert guidance and structured preparation for PGCET and MBA entrance exams with proven strategies.</p>
+          <p className="text-lg text-muted-foreground max-w-2xl">Expert guidance and structured preparation for PGCET MBA and PGCET MCA entrance exams.</p>
         </div>
       </section>
       <section className="py-16 bg-background" ref={ref}>
