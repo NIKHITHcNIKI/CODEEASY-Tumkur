@@ -11,6 +11,9 @@ import StemPrograms from "./pages/StemPrograms";
 import FinancePrograms from "./pages/FinancePrograms";
 import ExamCounseling from "./pages/ExamCounseling";
 import TechnicalPrograms from "./pages/TechnicalPrograms";
+import CoreLanguageCourses from "./pages/CoreLanguageCourses";
+import AICourses from "./pages/AICourses";
+import CyberSecurityCourses from "./pages/CyberSecurityCourses";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +33,9 @@ const App = () => (
           <Route path="/courses/finance" element={<FinancePrograms />} />
           <Route path="/courses/technical" element={<TechnicalPrograms />} />
           <Route path="/courses/exam-counseling" element={<ExamCounseling />} />
+          <Route path="/courses/technical/core-language" element={<CoreLanguageCourses />} />
+          <Route path="/courses/technical/ai" element={<AICourses />} />
+          <Route path="/courses/technical/cyber-security" element={<CyberSecurityCourses />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

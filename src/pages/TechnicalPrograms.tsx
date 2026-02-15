@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Code, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import { Code, Brain, Shield, Heart, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import courseCoreImg from '@/assets/course-core-language.jpg';
@@ -14,27 +13,33 @@ import courseTechnicalImg from '@/assets/course-technical-training.jpg';
 const technicalCourses = [
   {
     title: 'Core Language',
-    description: 'Master fundamental programming languages that form the backbone of software development.',
+    description: 'Master fundamental programming languages — C++, Java, Python — that form the backbone of software development.',
     image: courseCoreImg,
     duration: '4 months',
     audience: 'Graduates',
-    topics: ['C', 'C++', 'Java', 'Python', 'Other'],
+    topics: ['C++', 'Java', 'Python'],
+    link: '/courses/technical/core-language',
+    icon: Code,
   },
   {
     title: 'AI',
-    description: 'Dive into the world of Artificial Intelligence with hands-on training in robotics and natural language processing.',
+    description: 'Dive into Artificial Intelligence with hands-on training in Robotics and Natural Language Processing.',
     image: courseAiImg,
     duration: '3 months',
     audience: 'IT Students',
     topics: ['Robotics', 'NLP'],
+    link: '/courses/technical/ai',
+    icon: Brain,
   },
   {
     title: 'Cyber Security',
-    description: 'Learn to protect digital assets with ethical hacking techniques and advanced threat detection skills.',
+    description: 'Protect digital assets with ethical hacking techniques and advanced threat detection skills.',
     image: courseCyberImg,
     duration: '4 months',
     audience: 'IT Students',
     topics: ['Ethical Hacking', 'Threat Detection'],
+    link: '/courses/technical/cyber-security',
+    icon: Shield,
   },
   {
     title: 'Personality Development',
@@ -43,25 +48,43 @@ const technicalCourses = [
     duration: '2 months',
     audience: 'All Students',
     topics: ['Meditation'],
+    link: null,
+    icon: Heart,
   },
 ];
 
 const CourseCard = ({ course, index }: { course: typeof technicalCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const navigate = useNavigate();
+  const IconComp = course.icon;
+
+  const handleClick = () => {
+    if (course.link) {
+      navigate(course.link);
+    } else {
+      window.location.href = '/#contact';
+    }
+  };
+
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={handleClick}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="h-48 overflow-hidden"><img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
         <div className="p-6">
-          <h3 className="text-xl font-bold font-display mb-2">{course.title}</h3>
+          <div className="flex items-center gap-2 mb-2">
+            <IconComp className="w-5 h-5 text-primary" />
+            <h3 className="text-xl font-bold font-display">{course.title}</h3>
+          </div>
           <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{course.description}</p>
           <div className="flex items-center gap-4 mb-4 text-sm">
             <div className="flex items-center gap-1.5 text-muted-foreground"><Clock className="w-4 h-4 text-primary" /><span>{course.duration}</span></div>
             <div className="flex items-center gap-1.5 text-muted-foreground"><Users className="w-4 h-4 text-primary" /><span>{course.audience}</span></div>
           </div>
           <div className="flex flex-wrap gap-2 mb-4">{course.topics.map((topic) => (<span key={topic} className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">{topic}</span>))}</div>
-          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">Enquire Now<ArrowRight className="w-4 h-4" /></div>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
+            {course.link ? 'Explore Courses' : 'Enroll Now'}<ArrowRight className="w-4 h-4" />
+          </div>
         </div>
       </div>
     </motion.div>
@@ -99,7 +122,7 @@ const TechnicalPrograms = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold font-display mb-4">Ready to Build Your Tech Career?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">Contact us to learn more and enroll in our technical programs.</p>
-          <motion.a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:bg-primary/90" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Contact Us<ArrowRight className="w-5 h-5" /></motion.a>
+          <motion.a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:bg-primary/90" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Enroll Now<ArrowRight className="w-5 h-5" /></motion.a>
         </div>
       </section>
       <Footer />
