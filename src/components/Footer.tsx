@@ -64,11 +64,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-background/70 hover:text-primary transition-colors">+91 98765 43210</a>
+                <a href="tel:+919686265526 /+91 761 965 4360" className="text-background/70 hover:text-primary transition-colors">+91 96862 65526 / +91 761 965 4360</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:info@codeeasy.in" className="text-background/70 hover:text-primary transition-colors">info@codeeasy.in</a>
+                <a href="mailto:codeeasytumkur@gmail.com" className="text-background/70 hover:text-primary transition-colors">codeeasytumkur@gmail.com</a>
               </li>
             </ul>
           </div>
