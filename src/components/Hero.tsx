@@ -64,7 +64,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 text-center">
+      <div className="relative z-10 container mx-auto px-4 pt-24 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ const Hero = () => {
           >
             Welcome to Codeeasy
             <br />
-            <span className="gradient-text">Your Premier Institute for STEM Education in Tumkur</span>
+            <span className="gradient-text">Your Premium Institute for STEM Education in Tumkur</span>
           </motion.h1>
 
           <motion.p
