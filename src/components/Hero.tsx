@@ -49,7 +49,7 @@ const Hero = () => {
 
       <div className="hero-overlay" />
 
-      <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroImages.map((_, index) => (
           <button
             key={index}
@@ -110,7 +110,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="mt-12 flex justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 10, 0] }}
           transition={{
