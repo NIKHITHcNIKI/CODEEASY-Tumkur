@@ -8,6 +8,7 @@ import SchoolPrograms from "./pages/SchoolPrograms";
 import CollegePrograms from "./pages/CollegePrograms";
 import LanguageCourses from "./pages/LanguageCourses";
 import StemPrograms from "./pages/StemPrograms";
+import SteamPrograms from "./pages/SteamPrograms";
 import FinancePrograms from "./pages/FinancePrograms";
 import ExamCounseling from "./pages/ExamCounseling";
 import TechnicalPrograms from "./pages/TechnicalPrograms";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/courses/school" element={<SchoolPrograms />} />
           <Route path="/courses/college" element={<CollegePrograms />} />
           <Route path="/courses/stem" element={<StemPrograms />} />
+          <Route path="/courses/steam" element={<SteamPrograms />} />
           <Route path="/courses/languages" element={<LanguageCourses />} />
           <Route path="/courses/finance" element={<FinancePrograms />} />
           <Route path="/courses/technical" element={<TechnicalPrograms />} />

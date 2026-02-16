@@ -2,41 +2,50 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Microscope, Palette, Languages, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import { Microscope, GraduationCap, Code, Blocks, Globe, Bot, Calculator, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import artImg from '@/assets/course-art.jpg';
-import languageImg from '@/assets/course-language.jpg';
+import gradeImg from '@/assets/course-grade1-10.jpg';
+import codingKidsImg from '@/assets/course-coding-kids.jpg';
+import scratchImg from '@/assets/course-scratch.jpg';
+import blockCodingImg from '@/assets/course-block-coding.jpg';
+import webImg from '@/assets/course-web.jpg';
+import roboticsImg from '@/assets/course-robotics.jpg';
+import progmathImg from '@/assets/course-progmath.jpg';
 
-const stemCategories = [
-  { icon: Palette, title: 'Art & Craft', tagline: 'Unleash Creativity', description: 'Explore painting, drawing, sculpture, and mixed media through hands-on creative workshops.', courses: ['Painting', 'Drawing', 'Sculpture', 'Mixed Media', 'Craft Projects'], duration: 'Ongoing', ageGroup: 'All Ages', image: artImg, link: null },
-  { icon: Languages, title: 'Language Course', tagline: 'Master Multiple Languages', description: 'Comprehensive language courses to help students excel in Kannada, English, and Hindi.', courses: ['Kannada', 'English', 'Hindi'], duration: '3-6 months', ageGroup: 'Class 1-12', image: languageImg, link: '/courses/languages' },
+const stemCourses = [
+  { icon: GraduationCap, title: 'Grade 1 to 10', tagline: 'Foundation Learning', description: 'Strong academic foundation with PCMB tuition, competitive exam coaching, and project support for CBSE, ICSE, and State Board students.', topics: ['PCMB Tuition', 'Olympiad Prep', 'NTSE Coaching', 'Project Support'], duration: 'Academic Year', ageGroup: 'Class 1-10', image: gradeImg },
+  { icon: Code, title: 'Coding for Kids', tagline: 'Build the Future', description: 'Learn programming through fun, interactive courses designed for young minds. From visual coding to real projects.', topics: ['Intro to Programming', 'Logic Building', 'Mini Projects', 'Game Development'], duration: '3-6 months', ageGroup: 'Class 3-8', image: codingKidsImg },
+  { icon: Blocks, title: 'Scratch', tagline: 'Visual Programming', description: "Create interactive stories, games, and animations using Scratch — the world's most popular visual programming language for kids.", topics: ['Animations', 'Games', 'Interactive Stories', 'Creative Projects'], duration: '3 months', ageGroup: 'Class 3-7', image: scratchImg },
+  { icon: Blocks, title: 'Block Coding', tagline: 'Drag, Drop & Code', description: 'Master block-based programming to understand coding concepts without typing complex syntax.', topics: ['Logic Blocks', 'Sequencing', 'Loops & Conditions', 'Problem Solving'], duration: '3 months', ageGroup: 'Class 3-8', image: blockCodingImg },
+  { icon: Globe, title: 'Web Development', tagline: 'Create for the Web', description: 'Learn to build websites from scratch using HTML, CSS, and JavaScript with hands-on projects.', topics: ['HTML & CSS', 'JavaScript Basics', 'Responsive Design', 'Live Projects'], duration: '4-6 months', ageGroup: 'Class 6-12', image: webImg },
+  { icon: Bot, title: 'Robotics', tagline: 'Build & Program Robots', description: 'Hands-on robotics courses where students design, build, and program their own robots.', topics: ['Robot Design', 'Sensors & Motors', 'Arduino', 'Competitions'], duration: '3-6 months', ageGroup: 'Class 5-12', image: roboticsImg },
+  { icon: Calculator, title: 'ProgMath', tagline: 'Programming + Mathematics', description: 'Combine programming with mathematical concepts to solve real-world problems computationally.', topics: ['Math Algorithms', 'Computational Thinking', 'Data Patterns', 'Problem Solving'], duration: '3-6 months', ageGroup: 'Class 5-12', image: progmathImg },
 ];
 
-const CategoryCard = ({ category, index }: { category: typeof stemCategories[0]; index: number }) => {
+const CourseCard = ({ course, index }: { course: typeof stemCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const navigate = useNavigate();
-  const handleClick = () => { if (category.link) { navigate(category.link); } else { window.location.href = '/#contact'; } };
+  const handleClick = () => { window.location.href = '/#contact'; };
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={handleClick}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.08 }} className="group cursor-pointer" onClick={handleClick}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
-        <div className="relative h-48 overflow-hidden">
-          <img src={category.image} alt={category.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+        <div className="relative h-44 overflow-hidden">
+          <img src={course.image} alt={course.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-4 left-4"><div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center shadow-lg"><category.icon className="w-6 h-6 text-primary-foreground" /></div></div>
+          <div className="absolute bottom-4 left-4"><div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shadow-lg"><course.icon className="w-5 h-5 text-primary-foreground" /></div></div>
         </div>
-        <div className="p-6">
-          <h3 className="text-xl font-bold font-display mb-1">{category.title}</h3>
-          <p className="text-primary text-sm font-medium mb-3">{category.tagline}</p>
-          <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{category.description}</p>
-          <div className="flex items-center gap-4 mb-4 text-sm">
-            <div className="flex items-center gap-1.5 text-muted-foreground"><Clock className="w-4 h-4 text-primary" /><span>{category.duration}</span></div>
-            <div className="flex items-center gap-1.5 text-muted-foreground"><Users className="w-4 h-4 text-primary" /><span>{category.ageGroup}</span></div>
+        <div className="p-5">
+          <h3 className="text-lg font-bold font-display mb-1">{course.title}</h3>
+          <p className="text-primary text-xs font-medium mb-2">{course.tagline}</p>
+          <p className="text-muted-foreground text-sm mb-3 leading-relaxed line-clamp-2">{course.description}</p>
+          <div className="flex items-center gap-3 mb-3 text-xs">
+            <div className="flex items-center gap-1 text-muted-foreground"><Clock className="w-3.5 h-3.5 text-primary" /><span>{course.duration}</span></div>
+            <div className="flex items-center gap-1 text-muted-foreground"><Users className="w-3.5 h-3.5 text-primary" /><span>{course.ageGroup}</span></div>
           </div>
-          <div className="flex flex-wrap gap-2 mb-4">{category.courses.map((c) => (<span key={c} className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">{c}</span>))}</div>
-          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">{category.link ? 'View Courses' : 'Enquire Now'}<ArrowRight className="w-4 h-4" /></div>
+          <div className="flex flex-wrap gap-1.5 mb-3">{course.topics.map((t) => (<span key={t} className="px-2 py-0.5 text-xs rounded-full bg-muted text-muted-foreground">{t}</span>))}</div>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">Enquire Now<ArrowRight className="w-4 h-4" /></div>
         </div>
       </div>
     </motion.div>
@@ -51,29 +60,28 @@ const StemPrograms = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <section className="relative pt-24 pb-12 bg-muted overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 flex h-4"><div className="flex-1 bg-red-500" /><div className="flex-1 bg-blue-500" /><div className="flex-1 bg-yellow-400" /><div className="flex-1 bg-green-500" /></div>
+      <section className="relative pt-24 pb-12 bg-muted">
         <div className="container mx-auto px-4">
           <button onClick={() => navigate('/courses/school')} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"><ArrowLeft className="w-4 h-4" />Back to School Programs</button>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 rounded-xl bg-primary flex items-center justify-center"><Microscope className="w-8 h-8 text-primary-foreground" /></div>
-            <div><h1 className="text-3xl md:text-4xl font-bold font-display">STEM Learning</h1><p className="text-muted-foreground">Science, Technology, Engineering & Arts</p></div>
+            <div><h1 className="text-3xl md:text-4xl font-bold font-display">STEM Learning</h1><p className="text-muted-foreground">Experience the Aroma of STEM Learning</p></div>
           </motion.div>
-          <p className="text-lg text-muted-foreground max-w-2xl">Hands-on learning experiences in creative arts and languages through expert-led workshops and comprehensive courses.</p>
+          <p className="text-lg text-muted-foreground max-w-2xl">Comprehensive STEM programs including academics, coding, robotics, and mathematical programming for young innovators.</p>
         </div>
       </section>
       <section className="py-16 bg-background" ref={ref}>
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Explore Our Programs</h2>
-            <p className="text-muted-foreground">Choose from creative arts or language mastery</p>
+            <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Explore Our STEM Courses</h2>
+            <p className="text-muted-foreground">Choose from a wide range of STEM programs</p>
           </motion.div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">{stemCategories.map((category, index) => (<CategoryCard key={category.title} category={category} index={index} />))}</div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">{stemCourses.map((course, index) => (<CourseCard key={course.title} course={course} index={index} />))}</div>
         </div>
       </section>
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold font-display mb-4">Ready to Explore?</h2>
+          <h2 className="text-2xl font-bold font-display mb-4">Ready to Explore STEM?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">Contact us to learn more about our STEM programs and find the perfect fit.</p>
           <motion.a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:bg-primary/90" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Contact Us<ArrowRight className="w-5 h-5" /></motion.a>
         </div>
