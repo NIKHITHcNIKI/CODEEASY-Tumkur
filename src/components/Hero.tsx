@@ -49,7 +49,7 @@ const Hero = () => {
 
       <div className="hero-overlay" />
 
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-36 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroImages.map((_, index) => (
           <button
             key={index}
