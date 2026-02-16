@@ -98,11 +98,13 @@ const Contact = () => {
                   >
                     <option value="">Select a course</option>
                     <optgroup label="For School Students">
-                      <option value="robotics">Robotics</option>
-                      <option value="coding-kids">Coding (Scratch/Python)</option>
-                      <option value="pcmb">PCMB Tuition</option>
-                      <option value="competitive">Competitive Exam Coaching</option>
-                      <option value="summer-camp">Summer Camps</option>
+                      <optgroup label="STEM Learning">STEM learning</optgroup>
+                      <option value="Grade 1-10">Grade 1-10</option>
+                      <option value="coding for kids">Coding for Kids</option>
+                      <option value="Scratch">Scratch </option>
+                      <option value="Block code">Block Code</option>
+                      <option value="WED">Web </option>
+                      <option value="Robotics">Robotics</option>
                     </optgroup>
                     <optgroup label="For College & Graduates">
                       <option value="web-dev">Programming & Web Development</option>
@@ -156,12 +158,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-semibold">Call Us</p>
-                  <p className="text-muted-foreground">+91 98765 43210</p>
+                  <p className="text-muted-foreground">+91 96862 65526 / +91 761 965 4360</p>
                 </div>
               </a>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/9686265526"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group"
@@ -171,12 +173,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-semibold">WhatsApp</p>
-                  <p className="text-muted-foreground">+91 98765 43210</p>
+                  <p className="text-muted-foreground">+91 9686265526</p>
                 </div>
               </a>
 
               <a
-                href="mailto:info@codeeasy.in"
+                href="codeeasytumkur@gmail.com"
                 className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
@@ -184,7 +186,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-semibold">Email Us</p>
-                  <p className="text-muted-foreground">info@codeeasy.in</p>
+                  <p className="text-muted-foreground">codeeasytumkur@gmail.com</p>
                 </div>
               </a>
 
