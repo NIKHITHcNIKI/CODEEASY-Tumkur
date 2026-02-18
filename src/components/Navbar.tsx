@@ -5,11 +5,11 @@ import codeEasyIcon from '@/assets/codeeasy-icon.jpg';
 import codeEasyLogo from '@/assets/codeeasy-logo.png';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Courses', href: '#courses' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Contact Us', href: '#contact' },
+  { name: 'Home', href: '/#home' },
+  { name: 'Courses', href: '/#courses' },
+  { name: 'Reviews', href: '/#reviews' },
+  { name: 'About Us', href: '/#about' },
+  { name: 'Contact Us', href: '/#contact' },
 ];
 
 const Navbar = () => {
@@ -34,7 +34,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           <motion.a
-            href="#home"
+            href="/"
             className="flex items-center gap-2"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
@@ -58,7 +58,7 @@ const Navbar = () => {
               </motion.a>
             ))}
             <motion.a
-              href="#contact"
+              href="/#contact"
               className="btn-hero-primary py-2 px-6 text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 className="btn-hero-primary py-3 text-center text-sm"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

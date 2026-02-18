@@ -36,22 +36,22 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6 font-display">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#home" className="text-background/70 hover:text-primary transition-colors">Home</a></li>
-              <li><a href="#courses" className="text-background/70 hover:text-primary transition-colors">Courses</a></li>
-              <li><a href="#reviews" className="text-background/70 hover:text-primary transition-colors">Reviews</a></li>
-              <li><a href="#about" className="text-background/70 hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#contact" className="text-background/70 hover:text-primary transition-colors">Contact Us</a></li>
+              <li><a href="/#home" className="text-background/70 hover:text-primary transition-colors">Home</a></li>
+              <li><a href="/#courses" className="text-background/70 hover:text-primary transition-colors">Courses</a></li>
+              <li><a href="/#reviews" className="text-background/70 hover:text-primary transition-colors">Reviews</a></li>
+              <li><a href="/#about" className="text-background/70 hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/#contact" className="text-background/70 hover:text-primary transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-6 font-display">Our Courses</h3>
             <ul className="space-y-3">
-              <li><a href="#courses" className="text-background/70 hover:text-primary transition-colors">STEM Learning</a></li>
-              <li><a href="#courses" className="text-background/70 hover:text-primary transition-colors">Technical Training</a></li>
-              <li><a href="#courses" className="text-background/70 hover:text-primary transition-colors">Entrance Coaching</a></li>
-              <li><a href="#courses" className="text-background/70 hover:text-primary transition-colors">Finance & Commerce</a></li>
-              <li><a href="#courses" className="text-background/70 hover:text-primary transition-colors">Language Courses</a></li>
+              <li><a href="/#courses" className="text-background/70 hover:text-primary transition-colors">STEM Learning</a></li>
+              <li><a href="/#courses" className="text-background/70 hover:text-primary transition-colors">Technical Training</a></li>
+              <li><a href="/#courses" className="text-background/70 hover:text-primary transition-colors">Entrance Coaching</a></li>
+              <li><a href="/#courses" className="text-background/70 hover:text-primary transition-colors">Finance & Commerce</a></li>
+              <li><a href="/#courses" className="text-background/70 hover:text-primary transition-colors">Language Courses</a></li>
             </ul>
           </div>
 
