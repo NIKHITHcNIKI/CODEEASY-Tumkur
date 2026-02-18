@@ -98,21 +98,25 @@ const Contact = () => {
                   >
                     <option value="">Select a course</option>
                     <optgroup label="For School Students">
-                      <optgroup label="STEM Learning">STEM learning</optgroup>
                       <option value="Grade 1-10">Grade 1-10</option>
                       <option value="coding for kids">Coding for Kids</option>
                       <option value="Scratch">Scratch </option>
                       <option value="Block code">Block Code</option>
                       <option value="WED">Web </option>
                       <option value="Robotics">Robotics</option>
+                      <option value="Progmath">Progmath</option>
+                      <option value="Language">Language</option>
+                      <option value="Art and craft">Art and Craft</option>
                     </optgroup>
                     <optgroup label="For College & Graduates">
-                      <option value="web-dev">Programming & Web Development</option>
-                      <option value="cybersecurity">Cybersecurity</option>
-                      <option value="digital-marketing">Digital Marketing</option>
-                      <option value="software-testing">Software Testing</option>
-                      <option value="cloud">Cloud Computing</option>
-                      <option value="excel-tally">Advanced Excel & Tally</option>
+                      <option value="C Programing">C Programming</option>
+                      <option value="C++">C++</option>
+                      <option value="java">Java</option>
+                      <option value="Python">Python</option>
+                      <option value="Robotics">Robotics</option>
+                      <option value="NLP (Natural Language Processing)">NLP (Natural Language Processing)</option>
+                      <option value="Ethical Hacking">Ethical Hacking</option>
+                      <option value="Threat Detection">Threat Detection</option>
                     </optgroup>
                   </select>
                 </div>
