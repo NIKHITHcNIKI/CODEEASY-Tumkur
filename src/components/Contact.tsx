@@ -16,8 +16,8 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will get back to you soon.');
+    const text = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Course Interest:* ${formData.course}%0A*Message:* ${formData.message}`;
+    window.open(`https://wa.me/+919686265526?text=${text}`, '_blank');
     setFormData({ name: '', email: '', phone: '', course: '', message: '' });
   };
 
