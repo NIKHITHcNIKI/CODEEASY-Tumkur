@@ -163,7 +163,7 @@ const Contact = () => {
               </a>
 
               <a
-                href="https://wa.me/919686265526"
+                href="https://wa.me/+919686265526"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group"
