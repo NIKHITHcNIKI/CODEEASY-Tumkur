@@ -16,6 +16,7 @@ import CoreLanguageCourses from "./pages/CoreLanguageCourses";
 import AICourses from "./pages/AICourses";
 import CyberSecurityCourses from "./pages/CyberSecurityCourses";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/courses/school" element={<SchoolPrograms />} />
