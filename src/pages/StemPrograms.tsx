@@ -61,7 +61,13 @@ const StemPrograms = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <section className="relative pt-24 pb-12 bg-muted">
+      <div className="flex w-full h-2 pt-[64px]">
+        <div className="flex-1" style={{ backgroundColor: 'hsl(0, 84%, 50%)' }} />
+        <div className="flex-1" style={{ backgroundColor: 'hsl(220, 90%, 56%)' }} />
+        <div className="flex-1" style={{ backgroundColor: 'hsl(45, 100%, 51%)' }} />
+        <div className="flex-1" style={{ backgroundColor: 'hsl(142, 71%, 45%)' }} />
+      </div>
+      <section className="relative pb-12 pt-8 bg-muted">
         <div className="container mx-auto px-4">
           <button onClick={() => navigate('/courses/school')} className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-6"><ArrowLeft className="w-4 h-4" />Back to School Programs</button>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-4 mb-4">
