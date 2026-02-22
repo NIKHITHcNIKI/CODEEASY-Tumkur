@@ -17,7 +17,7 @@ const LanguageCard = ({ course, index }: { course: typeof languageCourses[0]; in
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group">
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className={`h-3 bg-gradient-to-r ${course.color}`} />
         <div className="p-6">

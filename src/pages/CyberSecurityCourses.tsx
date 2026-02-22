@@ -27,7 +27,7 @@ const CourseCard = ({ course, index }: { course: typeof courses[0]; index: numbe
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group">
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full flex flex-col">
         <div className="h-52 overflow-hidden"><img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
         <div className="p-6 flex flex-col flex-1">
