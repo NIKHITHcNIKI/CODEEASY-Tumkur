@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Code, Brain, Shield, Heart, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import { Code, Brain, Shield, Heart, ArrowLeft, ArrowRight, Clock, Users, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import courseCoreImg from '@/assets/course-core-language.jpg';
@@ -9,6 +9,13 @@ import courseAiImg from '@/assets/course-ai.jpg';
 import courseCyberImg from '@/assets/course-cybersecurity.jpg';
 import coursePersonalityImg from '@/assets/course-personality.jpg';
 import courseTechnicalImg from '@/assets/course-technical-training.jpg';
+import courseSoftwareDevImg from '@/assets/course-software-dev.jpg';
+import courseDigitalMarketingImg from '@/assets/course-digital-marketing.jpg';
+import courseSoftwareTestingImg from '@/assets/course-software-testing.jpg';
+import courseItSupportImg from '@/assets/course-it-support.jpg';
+import courseUxUiImg from '@/assets/course-ux-ui-design.jpg';
+import courseWebDevCmsImg from '@/assets/course-web-dev-cms.jpg';
+import courseCloudDevopsImg from '@/assets/course-cloud-devops.jpg';
 
 const technicalCourses = [
   {
@@ -50,6 +57,76 @@ const technicalCourses = [
     topics: ['Meditation'],
     link: null,
     icon: Heart,
+  },
+  {
+    title: 'Software Development & Engineering',
+    description: 'Build robust software solutions with modern development practices, design patterns, and engineering principles.',
+    image: courseSoftwareDevImg,
+    duration: '5 months',
+    audience: 'Graduates',
+    topics: ['Full Stack', 'Design Patterns', 'Agile'],
+    link: null,
+    icon: Monitor,
+  },
+  {
+    title: 'Digital Marketing',
+    description: 'Master SEO, social media marketing, content strategy, and analytics to drive business growth online.',
+    image: courseDigitalMarketingImg,
+    duration: '3 months',
+    audience: 'All Students',
+    topics: ['SEO', 'Social Media', 'Analytics'],
+    link: null,
+    icon: Megaphone,
+  },
+  {
+    title: 'Software Testing & QA',
+    description: 'Learn manual and automated testing, quality assurance methodologies, and bug tracking tools.',
+    image: courseSoftwareTestingImg,
+    duration: '3 months',
+    audience: 'IT Students',
+    topics: ['Manual Testing', 'Automation', 'QA'],
+    link: null,
+    icon: Bug,
+  },
+  {
+    title: 'IT Support & System Administration',
+    description: 'Gain skills in network management, system troubleshooting, and IT infrastructure administration.',
+    image: courseItSupportImg,
+    duration: '4 months',
+    audience: 'Graduates',
+    topics: ['Networking', 'System Admin', 'Troubleshooting'],
+    link: null,
+    icon: Server,
+  },
+  {
+    title: 'UX/UI Design & Product Design',
+    description: 'Create user-centered designs with wireframing, prototyping, and modern design tools like Figma.',
+    image: courseUxUiImg,
+    duration: '3 months',
+    audience: 'All Students',
+    topics: ['Figma', 'Wireframing', 'Prototyping'],
+    link: null,
+    icon: Palette,
+  },
+  {
+    title: 'Web Development & CMS',
+    description: 'Build responsive websites and manage content with popular CMS platforms like WordPress and Shopify.',
+    image: courseWebDevCmsImg,
+    duration: '4 months',
+    audience: 'All Students',
+    topics: ['HTML/CSS', 'WordPress', 'Responsive Design'],
+    link: null,
+    icon: Globe,
+  },
+  {
+    title: 'Cloud Computing & DevOps',
+    description: 'Master cloud platforms, CI/CD pipelines, containerization, and infrastructure automation.',
+    image: courseCloudDevopsImg,
+    duration: '5 months',
+    audience: 'IT Students',
+    topics: ['AWS', 'Docker', 'CI/CD'],
+    link: null,
+    icon: Cloud,
   },
 ];
 
@@ -115,7 +192,7 @@ const TechnicalPrograms = () => {
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Our Technical Courses</h2>
             <p className="text-muted-foreground">Choose the course that fits your career goals</p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">{technicalCourses.map((course, index) => (<CourseCard key={course.title} course={course} index={index} />))}</div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">{technicalCourses.map((course, index) => (<CourseCard key={course.title} course={course} index={index} />))}</div>
         </div>
       </section>
       <section className="py-16 bg-muted">
