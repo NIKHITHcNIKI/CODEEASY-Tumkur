@@ -15,6 +15,7 @@ import TechnicalPrograms from "./pages/TechnicalPrograms";
 import CoreLanguageCourses from "./pages/CoreLanguageCourses";
 import AICourses from "./pages/AICourses";
 import CyberSecurityCourses from "./pages/CyberSecurityCourses";
+import TestimonialsGallery from "./pages/TestimonialsGallery";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
