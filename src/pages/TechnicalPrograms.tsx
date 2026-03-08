@@ -16,96 +16,25 @@ import courseWebDevCmsImg from '@/assets/course-web-dev-cms.jpg';
 import courseCloudDevopsImg from '@/assets/course-cloud-devops.jpg';
 
 const technicalCourses = [
-  {
-    title: 'Software Development & Engineering',
-    description: 'Build robust software solutions with modern development practices, design patterns, and full-stack engineering principles.',
-    image: courseSoftwareDevImg,
-    duration: '5 months',
-    audience: 'Graduates',
-    topics: ['Full Stack', 'Design Patterns', 'Agile'],
-    icon: Monitor,
-  },
-  {
-    title: 'Cybersecurity',
-    description: 'Protect digital assets with ethical hacking techniques, threat detection, and advanced security protocols.',
-    image: courseCyberImg,
-    duration: '4 months',
-    audience: 'IT Students',
-    topics: ['Ethical Hacking', 'Threat Detection', 'Network Security'],
-    icon: Shield,
-  },
-  {
-    title: 'Artificial Intelligence & Machine Learning',
-    description: 'Dive into AI/ML with hands-on training in deep learning, NLP, robotics, and data science.',
-    image: courseAiImg,
-    duration: '5 months',
-    audience: 'IT Students',
-    topics: ['Deep Learning', 'NLP', 'Data Science'],
-    icon: Brain,
-  },
-  {
-    title: 'Digital Marketing & E-Commerce',
-    description: 'Master SEO, social media marketing, e-commerce strategy, and analytics to drive business growth online.',
-    image: courseDigitalMarketingImg,
-    duration: '3 months',
-    audience: 'All Students',
-    topics: ['SEO', 'Social Media', 'E-Commerce'],
-    icon: Megaphone,
-  },
-  {
-    title: 'Software Testing & Quality Assurance',
-    description: 'Learn manual and automated testing, quality assurance methodologies, and bug tracking tools.',
-    image: courseSoftwareTestingImg,
-    duration: '3 months',
-    audience: 'IT Students',
-    topics: ['Manual Testing', 'Automation', 'QA'],
-    icon: Bug,
-  },
-  {
-    title: 'IT Support & Systems Administration',
-    description: 'Gain skills in network management, system troubleshooting, and IT infrastructure administration.',
-    image: courseItSupportImg,
-    duration: '4 months',
-    audience: 'Graduates',
-    topics: ['Networking', 'System Admin', 'Troubleshooting'],
-    icon: Server,
-  },
-  {
-    title: 'UX/UI Design & Product Design',
-    description: 'Create user-centered designs with wireframing, prototyping, and modern design tools like Figma.',
-    image: courseUxUiImg,
-    duration: '3 months',
-    audience: 'All Students',
-    topics: ['Figma', 'Wireframing', 'Prototyping'],
-    icon: Palette,
-  },
-  {
-    title: 'Web Development & CMS',
-    description: 'Build responsive websites and manage content with popular CMS platforms like WordPress and Shopify.',
-    image: courseWebDevCmsImg,
-    duration: '4 months',
-    audience: 'All Students',
-    topics: ['HTML/CSS', 'WordPress', 'Responsive Design'],
-    icon: Globe,
-  },
-  {
-    title: 'Cloud Computing & DevOps',
-    description: 'Master cloud platforms, CI/CD pipelines, containerization, and infrastructure automation.',
-    image: courseCloudDevopsImg,
-    duration: '5 months',
-    audience: 'IT Students',
-    topics: ['AWS', 'Docker', 'CI/CD'],
-    icon: Cloud,
-  },
+  { title: 'Software Development & Engineering', description: 'Build robust software solutions with modern development practices, design patterns, and full-stack engineering principles.', image: courseSoftwareDevImg, duration: '5 months', audience: 'Graduates', topics: ['Full Stack', 'Design Patterns', 'Agile'], icon: Monitor, slug: 'software-development' },
+  { title: 'Cybersecurity', description: 'Protect digital assets with ethical hacking techniques, threat detection, and advanced security protocols.', image: courseCyberImg, duration: '4 months', audience: 'IT Students', topics: ['Ethical Hacking', 'Threat Detection', 'Network Security'], icon: Shield, slug: 'cybersecurity' },
+  { title: 'Artificial Intelligence & Machine Learning', description: 'Dive into AI/ML with hands-on training in deep learning, NLP, robotics, and data science.', image: courseAiImg, duration: '5 months', audience: 'IT Students', topics: ['Deep Learning', 'NLP', 'Data Science'], icon: Brain, slug: 'ai-machine-learning' },
+  { title: 'Digital Marketing & E-Commerce', description: 'Master SEO, social media marketing, e-commerce strategy, and analytics to drive business growth online.', image: courseDigitalMarketingImg, duration: '3 months', audience: 'All Students', topics: ['SEO', 'Social Media', 'E-Commerce'], icon: Megaphone, slug: 'digital-marketing' },
+  { title: 'Software Testing & Quality Assurance', description: 'Learn manual and automated testing, quality assurance methodologies, and bug tracking tools.', image: courseSoftwareTestingImg, duration: '3 months', audience: 'IT Students', topics: ['Manual Testing', 'Automation', 'QA'], icon: Bug, slug: 'software-testing' },
+  { title: 'IT Support & Systems Administration', description: 'Gain skills in network management, system troubleshooting, and IT infrastructure administration.', image: courseItSupportImg, duration: '4 months', audience: 'Graduates', topics: ['Networking', 'System Admin', 'Troubleshooting'], icon: Server, slug: 'it-support' },
+  { title: 'UX/UI Design & Product Design', description: 'Create user-centered designs with wireframing, prototyping, and modern design tools like Figma.', image: courseUxUiImg, duration: '3 months', audience: 'All Students', topics: ['Figma', 'Wireframing', 'Prototyping'], icon: Palette, slug: 'ux-ui-design' },
+  { title: 'Web Development & CMS', description: 'Build responsive websites and manage content with popular CMS platforms like WordPress and Shopify.', image: courseWebDevCmsImg, duration: '4 months', audience: 'All Students', topics: ['HTML/CSS', 'WordPress', 'Responsive Design'], icon: Globe, slug: 'web-development-cms' },
+  { title: 'Cloud Computing & DevOps', description: 'Master cloud platforms, CI/CD pipelines, containerization, and infrastructure automation.', image: courseCloudDevopsImg, duration: '5 months', audience: 'IT Students', topics: ['AWS', 'Docker', 'CI/CD'], icon: Cloud, slug: 'cloud-computing-devops' },
 ];
 
 const CourseCard = ({ course, index }: { course: typeof technicalCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const IconComp = course.icon;
+  const navigate = useNavigate();
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => navigate(`/course/${course.slug}`)}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="h-48 overflow-hidden"><img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
         <div className="p-6">

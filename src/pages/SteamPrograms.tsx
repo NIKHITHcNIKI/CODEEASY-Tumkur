@@ -10,14 +10,14 @@ import languageImg from '@/assets/course-language.jpg';
 
 const steamCategories = [
   { icon: Languages, title: 'Language', tagline: 'Master Multiple Languages', description: 'Comprehensive language courses to help students excel in Kannada, English, and Hindi.', courses: ['Kannada', 'English', 'Hindi'], duration: '3-6 months', ageGroup: 'Class 1-12', image: languageImg, link: '/courses/languages' },
-  { icon: Palette, title: 'Art & Craft', tagline: 'Unleash Creativity', description: 'Explore painting, drawing, sculpture, and mixed media through hands-on creative workshops.', courses: ['Painting', 'Drawing', 'Sculpture', 'Mixed Media', 'Craft Projects'], duration: 'Ongoing', ageGroup: 'All Ages', image: artImg, link: null },
+  { icon: Palette, title: 'Art & Craft', tagline: 'Unleash Creativity', description: 'Explore painting, drawing, sculpture, and mixed media through hands-on creative workshops.', courses: ['Painting', 'Drawing', 'Sculpture', 'Mixed Media', 'Craft Projects'], duration: 'Ongoing', ageGroup: 'All Ages', image: artImg, link: '/course/art-craft' },
 ];
 
 const CategoryCard = ({ category, index }: { category: typeof steamCategories[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const navigate = useNavigate();
-  const handleClick = () => { if (category.link) { navigate(category.link); } else { window.location.href = '/#contact'; } };
+  const handleClick = () => { if (category.link) { navigate(category.link); } };
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={handleClick}>
@@ -36,7 +36,7 @@ const CategoryCard = ({ category, index }: { category: typeof steamCategories[0]
             <div className="flex items-center gap-1.5 text-muted-foreground"><Users className="w-4 h-4 text-primary" /><span>{category.ageGroup}</span></div>
           </div>
           <div className="flex flex-wrap gap-2 mb-4">{category.courses.map((c) => (<span key={c} className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">{c}</span>))}</div>
-          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">{category.link ? 'View Courses' : 'Enquire Now'}<ArrowRight className="w-4 h-4" /></div>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">View Courses<ArrowRight className="w-4 h-4" /></div>
         </div>
       </div>
     </motion.div>

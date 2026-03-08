@@ -17,6 +17,7 @@ import AICourses from "./pages/AICourses";
 import CyberSecurityCourses from "./pages/CyberSecurityCourses";
 import TestimonialsGallery from "./pages/TestimonialsGallery";
 import PersonalDevelopment from "./pages/PersonalDevelopment";
+import CourseDetail from "./pages/CourseDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/courses/technical/cyber-security" element={<CyberSecurityCourses />} />
           <Route path="/courses/personal-development" element={<PersonalDevelopment />} />
           <Route path="/testimonials" element={<TestimonialsGallery />} />
+          <Route path="/course/:slug" element={<CourseDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

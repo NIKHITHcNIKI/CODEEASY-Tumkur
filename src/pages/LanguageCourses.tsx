@@ -7,17 +7,18 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const languageCourses = [
-  { name: 'Kannada', tagline: 'Master the Local Language', description: 'Comprehensive Kannada language course covering reading, writing, speaking, and comprehension skills.', features: ['Speaking & Pronunciation', 'Reading & Writing', 'Grammar & Vocabulary', 'Literature & Poetry', 'Exam Preparation'], duration: '3-6 months', levels: 'Basic to Advanced', ageGroup: 'Class 1-12', color: 'from-yellow-500 to-red-500' },
-  { name: 'English', tagline: 'The Global Language', description: 'Build strong English communication skills with focus on grammar, vocabulary, spoken English, and academic writing.', features: ['Spoken English', 'Grammar & Vocabulary', 'Creative Writing', 'Reading Comprehension', 'Public Speaking'], duration: '3-6 months', levels: 'Basic to Advanced', ageGroup: 'Class 1-12', color: 'from-purple-500 to-blue-500' },
-  { name: 'Hindi', tagline: 'The National Language', description: 'Expert-led Hindi courses designed to improve fluency, grammar, and literary appreciation.', features: ['Conversational Hindi', 'Hindi Grammar', 'Essay & Letter Writing', 'Hindi Literature', 'CBSE/ICSE Exam Prep'], duration: '3-6 months', levels: 'Basic to Advanced', ageGroup: 'Class 1-12', color: 'from-blue-500 to-green-500' },
+  { name: 'Kannada', tagline: 'Master the Local Language', description: 'Comprehensive Kannada language course covering reading, writing, speaking, and comprehension skills.', features: ['Speaking & Pronunciation', 'Reading & Writing', 'Grammar & Vocabulary', 'Literature & Poetry', 'Exam Preparation'], duration: '3-6 months', levels: 'Basic to Advanced', ageGroup: 'Class 1-12', color: 'from-yellow-500 to-red-500', slug: 'kannada' },
+  { name: 'English', tagline: 'The Global Language', description: 'Build strong English communication skills with focus on grammar, vocabulary, spoken English, and academic writing.', features: ['Spoken English', 'Grammar & Vocabulary', 'Creative Writing', 'Reading Comprehension', 'Public Speaking'], duration: '3-6 months', levels: 'Basic to Advanced', ageGroup: 'Class 1-12', color: 'from-purple-500 to-blue-500', slug: 'english' },
+  { name: 'Hindi', tagline: 'The National Language', description: 'Expert-led Hindi courses designed to improve fluency, grammar, and literary appreciation.', features: ['Conversational Hindi', 'Hindi Grammar', 'Essay & Letter Writing', 'Hindi Literature', 'CBSE/ICSE Exam Prep'], duration: '3-6 months', levels: 'Basic to Advanced', ageGroup: 'Class 1-12', color: 'from-blue-500 to-green-500', slug: 'hindi' },
 ];
 
 const LanguageCard = ({ course, index }: { course: typeof languageCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const navigate = useNavigate();
 
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={() => navigate(`/course/${course.slug}`)}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className={`h-3 bg-gradient-to-r ${course.color}`} />
         <div className="p-6">

@@ -8,60 +8,19 @@ import coursePersonalDevImg from '@/assets/course-personal-dev.jpg';
 import coursePersonalityImg from '@/assets/course-personality.jpg';
 
 const personalCourses = [
-  {
-    title: 'Communication Skills',
-    description: 'Master verbal and non-verbal communication, active listening, and professional etiquette for career success.',
-    icon: MessageCircle,
-    duration: '2 months',
-    audience: 'All Students',
-    topics: ['Verbal Communication', 'Active Listening', 'Email Writing', 'Presentation Skills', 'Body Language'],
-  },
-  {
-    title: 'Public Speaking & Presentation',
-    description: 'Overcome stage fear and learn to deliver impactful speeches, presentations, and pitches with confidence.',
-    icon: Mic,
-    duration: '2 months',
-    audience: 'All Students',
-    topics: ['Speech Delivery', 'Stage Presence', 'Storytelling', 'Audience Engagement', 'Impromptu Speaking'],
-  },
-  {
-    title: 'Leadership & Team Management',
-    description: 'Develop leadership qualities, team management skills, and learn to inspire and motivate others effectively.',
-    icon: Users,
-    duration: '3 months',
-    audience: 'Graduates',
-    topics: ['Team Building', 'Decision Making', 'Conflict Resolution', 'Delegation', 'Motivational Skills'],
-  },
-  {
-    title: 'Personality Development',
-    description: 'Build a strong personality with grooming, self-confidence, emotional intelligence, and interpersonal skills.',
-    icon: Sparkles,
-    duration: '2 months',
-    audience: 'All Students',
-    topics: ['Self-Confidence', 'Grooming', 'Emotional Intelligence', 'Stress Management', 'Positive Attitude'],
-  },
-  {
-    title: 'Critical Thinking & Problem Solving',
-    description: 'Sharpen your analytical thinking, logical reasoning, and creative problem-solving abilities.',
-    icon: Brain,
-    duration: '2 months',
-    audience: 'All Students',
-    topics: ['Analytical Thinking', 'Logical Reasoning', 'Creative Solutions', 'Case Studies', 'Brainstorming'],
-  },
-  {
-    title: 'Goal Setting & Career Planning',
-    description: 'Learn to set SMART goals, plan your career path, and build strategies for long-term professional growth.',
-    icon: Target,
-    duration: '1 month',
-    audience: 'All Students',
-    topics: ['SMART Goals', 'Career Mapping', 'Resume Building', 'Interview Prep', 'Networking'],
-  },
+  { title: 'Communication Skills', description: 'Master verbal and non-verbal communication, active listening, and professional etiquette for career success.', icon: MessageCircle, duration: '2 months', audience: 'All Students', topics: ['Verbal Communication', 'Active Listening', 'Email Writing', 'Presentation Skills', 'Body Language'], slug: 'communication-skills' },
+  { title: 'Public Speaking & Presentation', description: 'Overcome stage fear and learn to deliver impactful speeches, presentations, and pitches with confidence.', icon: Mic, duration: '2 months', audience: 'All Students', topics: ['Speech Delivery', 'Stage Presence', 'Storytelling', 'Audience Engagement', 'Impromptu Speaking'], slug: 'public-speaking' },
+  { title: 'Leadership & Team Management', description: 'Develop leadership qualities, team management skills, and learn to inspire and motivate others effectively.', icon: Users, duration: '3 months', audience: 'Graduates', topics: ['Team Building', 'Decision Making', 'Conflict Resolution', 'Delegation', 'Motivational Skills'], slug: 'leadership' },
+  { title: 'Personality Development', description: 'Build a strong personality with grooming, self-confidence, emotional intelligence, and interpersonal skills.', icon: Sparkles, duration: '2 months', audience: 'All Students', topics: ['Self-Confidence', 'Grooming', 'Emotional Intelligence', 'Stress Management', 'Positive Attitude'], slug: 'personality-development' },
+  { title: 'Critical Thinking & Problem Solving', description: 'Sharpen your analytical thinking, logical reasoning, and creative problem-solving abilities.', icon: Brain, duration: '2 months', audience: 'All Students', topics: ['Analytical Thinking', 'Logical Reasoning', 'Creative Solutions', 'Case Studies', 'Brainstorming'], slug: 'critical-thinking' },
+  { title: 'Goal Setting & Career Planning', description: 'Learn to set SMART goals, plan your career path, and build strategies for long-term professional growth.', icon: Target, duration: '1 month', audience: 'All Students', topics: ['SMART Goals', 'Career Mapping', 'Resume Building', 'Interview Prep', 'Networking'], slug: 'goal-setting' },
 ];
 
 const CourseCard = ({ course, index }: { course: typeof personalCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const IconComp = course.icon;
+  const navigate = useNavigate();
 
   return (
     <motion.div
@@ -69,7 +28,8 @@ const CourseCard = ({ course, index }: { course: typeof personalCourses[0]; inde
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
+      className="group cursor-pointer"
+      onClick={() => navigate(`/course/${course.slug}`)}
     >
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="p-6">
@@ -94,14 +54,9 @@ const CourseCard = ({ course, index }: { course: typeof personalCourses[0]; inde
               </div>
             ))}
           </div>
-          <motion.a
-            href="/#contact"
-            className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-300 hover:bg-primary/90"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Enroll Now <ArrowRight className="w-4 h-4" />
-          </motion.a>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
+            View Details <ArrowRight className="w-4 h-4" />
+          </div>
         </div>
       </div>
     </motion.div>
