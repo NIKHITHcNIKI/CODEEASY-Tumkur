@@ -239,16 +239,17 @@ const Contact = () => {
               </div>
             </div>
 
-            <a href="https://maps.google.com/?q=Codeeasy+STEM+Education+SLN+Krupa+1st+Floor+Mahalakshminagar+2nd+Stage+2nd+Main+Rd+Batawadi+Tumakuru+Karnataka+572103" target="_blank" rel="noopener noreferrer" className="block rounded-2xl overflow-hidden border border-border h-48 hover:border-primary/30 transition-all">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.5!2d76.9375!3d13.3408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb02e8f5f1e3e3d%3A0x1234567890abcdef!2sSLN%20Krupa%2C%20Mahalakshminagar%2C%20Batawadi%2C%20Tumakuru%2C%20Karnataka%20572103!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <a
+              href="https://maps.google.com/?q=Codeeasy+STEM+Education+SLN+Krupa+1st+Floor+Mahalakshminagar+2nd+Stage+2nd+Main+Rd+Batawadi+Tumakuru+Karnataka+572103"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-2xl overflow-hidden border border-border h-48 hover:border-primary/30 transition-all relative group bg-muted"
+            >
+              <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-muted-foreground group-hover:text-primary transition-colors">
+                <MapPin className="w-10 h-10" />
+                <span className="font-semibold text-sm">Open in Google Maps</span>
+                <span className="text-xs text-center px-4">SLN Krupa, Mahalakshminagar, Batawadi, Tumakuru 572103</span>
+              </div>
             </a>
           </motion.div>
         </div>
