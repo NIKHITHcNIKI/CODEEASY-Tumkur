@@ -288,7 +288,8 @@ const Navbar = () => {
           </motion.div>
         )}
       </div>
-    </motion.nav>
+      </motion.nav>
+    </>
   );
 };
 
