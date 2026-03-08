@@ -10,15 +10,16 @@ import coursePgcetMbaImg from '@/assets/course-pgcet-mba.jpg';
 import coursePgcetMcaImg from '@/assets/course-pgcet-mca.jpg';
 
 const examCourses = [
-  { title: 'PGCET MBA', description: 'Comprehensive MBA entrance preparation covering quantitative aptitude, verbal ability, logical reasoning, and GD/PI training.', image: coursePgcetMbaImg, duration: '3 months', audience: 'All Graduates' },
-  { title: 'PGCET MCA', description: 'Structured preparation for PGCET MCA entrance exam with expert coaching in mathematics, computer science, and analytical reasoning.', image: coursePgcetMcaImg, duration: '3 months', audience: 'BCA/BSc Graduates' },
+  { title: 'PGCET MBA', description: 'Comprehensive MBA entrance preparation covering quantitative aptitude, verbal ability, logical reasoning, and GD/PI training.', image: coursePgcetMbaImg, duration: '3 months', audience: 'All Graduates', slug: 'pgcet-mba' },
+  { title: 'PGCET MCA', description: 'Structured preparation for PGCET MCA entrance exam with expert coaching in mathematics, computer science, and analytical reasoning.', image: coursePgcetMcaImg, duration: '3 months', audience: 'BCA/BSc Graduates', slug: 'pgcet-mca' },
 ];
 
 const CourseCard = ({ course, index }: { course: typeof examCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const navigate = useNavigate();
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => navigate(`/course/${course.slug}`)}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="h-56 overflow-hidden"><img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
         <div className="p-6">

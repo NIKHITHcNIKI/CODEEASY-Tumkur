@@ -13,19 +13,20 @@ import courseBusinessEconImg from '@/assets/course-business-economics.jpg';
 import courseStatisticsImg from '@/assets/course-statistics.jpg';
 
 const financeCourses = [
-  { title: 'Income Tax', description: 'Learn income tax filing, tax planning, deductions, and compliance for individuals and businesses.', image: courseIncomeTaxImg, duration: '2 months', audience: 'Commerce Students' },
-  { title: 'GST', description: 'Master Goods & Services Tax — registration, returns, invoicing, and compliance procedures.', image: courseGstImg, duration: '2 months', audience: 'Commerce Students' },
-  { title: 'Accounts', description: 'Comprehensive accounting training covering bookkeeping, financial statements, and Tally.', image: courseAccountsImg, duration: '3 months', audience: 'All Students' },
-  { title: 'Economics', description: 'Understand micro and macroeconomics, market structures, and economic policies for business.', image: courseBusinessEconImg, duration: '2 months', audience: 'Commerce Graduates' },
-  { title: 'Business', description: 'Business fundamentals, management principles, and entrepreneurial skills for modern commerce.', image: courseBusinessEconImg, duration: '2 months', audience: 'All Students' },
-  { title: 'Statistics', description: 'Data analysis, probability, statistical inference, and applications in business decision-making.', image: courseStatisticsImg, duration: '2 months', audience: 'All Students' },
+  { title: 'Income Tax', description: 'Learn income tax filing, tax planning, deductions, and compliance for individuals and businesses.', image: courseIncomeTaxImg, duration: '2 months', audience: 'Commerce Students', slug: 'income-tax' },
+  { title: 'GST', description: 'Master Goods & Services Tax — registration, returns, invoicing, and compliance procedures.', image: courseGstImg, duration: '2 months', audience: 'Commerce Students', slug: 'gst' },
+  { title: 'Accounts', description: 'Comprehensive accounting training covering bookkeeping, financial statements, and Tally.', image: courseAccountsImg, duration: '3 months', audience: 'All Students', slug: 'accounts' },
+  { title: 'Economics', description: 'Understand micro and macroeconomics, market structures, and economic policies for business.', image: courseBusinessEconImg, duration: '2 months', audience: 'Commerce Graduates', slug: 'economics' },
+  { title: 'Business', description: 'Business fundamentals, management principles, and entrepreneurial skills for modern commerce.', image: courseBusinessEconImg, duration: '2 months', audience: 'All Students', slug: 'business' },
+  { title: 'Statistics', description: 'Data analysis, probability, statistical inference, and applications in business decision-making.', image: courseStatisticsImg, duration: '2 months', audience: 'All Students', slug: 'statistics' },
 ];
 
 const CourseCard = ({ course, index }: { course: typeof financeCourses[0]; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const navigate = useNavigate();
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => window.location.href = '/#contact'}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.1 }} className="group cursor-pointer" onClick={() => navigate(`/course/${course.slug}`)}>
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="h-48 overflow-hidden"><img src={course.image} alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
         <div className="p-6">
