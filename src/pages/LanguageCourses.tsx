@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Languages, ArrowLeft, ArrowRight, Clock, Users, BookOpen, CheckCircle2 } from 'lucide-react';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
