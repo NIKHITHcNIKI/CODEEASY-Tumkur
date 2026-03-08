@@ -252,11 +252,11 @@ const Navbar = () => {
                         >
                           {courseDropdownItems.map((section) => (
                             <div key={section.category}>
-                              <a href={section.href} className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1 block" onClick={() => setIsMobileMenuOpen(false)}>{section.category}</a>
+                              <a href={section.href} className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1 block" onClick={(e) => handleNavClick(e, section.href)}>{section.category}</a>
                               {section.courses.map((course) => {
                                 const CourseIcon = course.icon;
                                 return (
-                                  <a key={course.name} href={course.href} className="flex items-center gap-2 py-1.5 pl-2 text-sm text-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                  <a key={course.name} href={course.href} className="flex items-center gap-2 py-1.5 pl-2 text-sm text-foreground hover:text-primary transition-colors" onClick={(e) => handleNavClick(e, course.href)}>
                                     <CourseIcon className="w-3.5 h-3.5 text-muted-foreground" />
                                     {course.name}
                                   </a>
