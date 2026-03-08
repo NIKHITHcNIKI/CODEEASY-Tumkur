@@ -213,15 +213,20 @@ const Contact = () => {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
+              <a
+                href="https://maps.google.com/?q=Codeeasy+STEM+Education+SLN+Krupa+1st+Floor+Mahalakshminagar+2nd+Stage+2nd+Main+Rd+Batawadi+Tumakuru+Karnataka+572103"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
+                  <MapPin className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
                 <div>
                   <p className="font-semibold">Visit Us</p>
-                  <p className="text-muted-foreground">Tumkur, Karnataka, India</p>
+                  <p className="text-muted-foreground text-sm">SLN Krupa, 1st Floor, Mahalakshminagar 2nd Stage, 2nd Main Rd, Batawadi, Tumakuru, Karnataka 572103</p>
                 </div>
-              </div>
+              </a>
 
               <div className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -234,9 +239,9 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl overflow-hidden border border-border h-48">
+            <a href="https://maps.google.com/?q=Codeeasy+STEM+Education+SLN+Krupa+1st+Floor+Mahalakshminagar+2nd+Stage+2nd+Main+Rd+Batawadi+Tumakuru+Karnataka+572103" target="_blank" rel="noopener noreferrer" className="block rounded-2xl overflow-hidden border border-border h-48 hover:border-primary/30 transition-all">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124442.81699799426!2d77.03419961640623!3d13.340881899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb02e9d8c5af1e9%3A0x7f4b4ddd7f4c4d4c!2sTumakuru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3880.5!2d76.9375!3d13.3408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb02e8f5f1e3e3d%3A0x1234567890abcdef!2sSLN%20Krupa%2C%20Mahalakshminagar%2C%20Batawadi%2C%20Tumakuru%2C%20Karnataka%20572103!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -244,7 +249,7 @@ const Contact = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
+            </a>
           </motion.div>
         </div>
       </div>

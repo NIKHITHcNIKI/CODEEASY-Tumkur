@@ -60,7 +60,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-background/70">Tumkur, Karnataka, India</span>
+                <a href="https://maps.google.com/?q=Codeeasy+STEM+Education+SLN+Krupa+1st+Floor+Mahalakshminagar+2nd+Stage+2nd+Main+Rd+Batawadi+Tumakuru+Karnataka+572103" target="_blank" rel="noopener noreferrer" className="text-background/70 hover:text-primary transition-colors">SLN Krupa, 1st Floor, Mahalakshminagar 2nd Stage, 2nd Main Rd, Batawadi, Tumakuru, Karnataka 572103</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
