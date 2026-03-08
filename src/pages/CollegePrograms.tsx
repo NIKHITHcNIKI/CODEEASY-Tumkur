@@ -111,15 +111,6 @@ const CollegePrograms = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">{collegeCategories.map((category, index) => (<CategoryCard key={category.title} category={category} index={index} />))}</div>
         </div>
       </section>
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-            <div><div className="text-4xl font-bold text-primary mb-2">100%</div><div className="text-muted-foreground">Placement Assistance</div></div>
-            <div><div className="text-4xl font-bold text-primary mb-2">50+</div><div className="text-muted-foreground">Hiring Partners</div></div>
-            <div><div className="text-4xl font-bold text-primary mb-2">1000+</div><div className="text-muted-foreground">Students Placed</div></div>
-          </div>
-        </div>
-      </section>
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold font-display mb-4">Ready to Start Your Career?</h2>
