@@ -15,13 +15,13 @@ const SPLASH_KEY = "codeeasy_splash_seen";
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(() => {
-    const seen = localStorage.getItem(SPLASH_KEY);
+    const seen = sessionStorage.getItem(SPLASH_KEY);
     return !seen;
   });
 
   const handleSplashComplete = useCallback(() => {
     setShowSplash(false);
-    localStorage.setItem(SPLASH_KEY, "1");
+    sessionStorage.setItem(SPLASH_KEY, "1");
   }, []);
 
   return (
