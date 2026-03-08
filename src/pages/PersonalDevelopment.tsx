@@ -55,14 +55,9 @@ const CourseCard = ({ course, index }: { course: typeof personalCourses[0]; inde
               </div>
             ))}
           </div>
-          <motion.a
-            href="/#contact"
-            className="inline-flex items-center gap-2 w-full justify-center px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-300 hover:bg-primary/90"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Enroll Now <ArrowRight className="w-4 h-4" />
-          </motion.a>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">
+            View Details <ArrowRight className="w-4 h-4" />
+          </div>
         </div>
       </div>
     </motion.div>
