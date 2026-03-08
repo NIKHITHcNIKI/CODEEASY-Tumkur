@@ -46,9 +46,7 @@ const CourseCard = ({ course, index }: { course: typeof courses[0]; index: numbe
             <div className="flex items-center gap-1.5 text-muted-foreground"><Clock className="w-4 h-4 text-primary" /><span>{course.duration}</span></div>
             <div className="flex items-center gap-1.5 text-muted-foreground"><Users className="w-4 h-4 text-primary" /><span>{course.audience}</span></div>
           </div>
-          <motion.a href="/#contact" className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-semibold text-sm transition-all duration-300 hover:bg-primary/90" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            Enroll Now <ArrowRight className="w-4 h-4" />
-          </motion.a>
+          <EnrollButton size="sm">Enroll Now</EnrollButton>
         </div>
       </div>
     </motion.div>
