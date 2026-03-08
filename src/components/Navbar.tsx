@@ -55,6 +55,9 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,6 +66,30 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Reset loading state when route changes
+  useEffect(() => {
+    setIsNavigating(false);
+  }, [location.pathname]);
+
+  const handleNavClick = useCallback((e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      const hash = href.substring(1); // e.g., "#contact"
+      if (location.pathname === '/') {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        setIsNavigating(true);
+        navigate('/' + hash);
+      }
+    } else {
+      setIsNavigating(true);
+      navigate(href);
+    }
+  }, [navigate, location.pathname]);
 
   return (
     <motion.nav
