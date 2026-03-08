@@ -170,6 +170,7 @@ const Navbar = () => {
                                       <a
                                         key={course.name}
                                         href={course.href}
+                                        onClick={(e) => { handleNavClick(e, course.href); setIsCoursesOpen(false); }}
                                         className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-accent transition-colors group"
                                       >
                                         <CourseIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
