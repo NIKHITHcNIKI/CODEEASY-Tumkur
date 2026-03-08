@@ -17,7 +17,7 @@ const CategoryCard = ({ category, index }: { category: typeof steamCategories[0]
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const navigate = useNavigate();
-  const handleClick = () => { if (category.link) { navigate(category.link); } else { window.location.href = '/#contact'; } };
+  const handleClick = () => { if (category.link) { navigate(category.link); } };
 
   return (
     <motion.div ref={ref} initial={{ opacity: 0, y: 50 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: index * 0.15 }} className="group cursor-pointer" onClick={handleClick}>
