@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Shield, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import courseEthicalImg from '@/assets/course-ethical-hacking.jpg';
