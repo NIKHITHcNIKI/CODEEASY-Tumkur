@@ -87,7 +87,7 @@ const TechnicalPrograms = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold font-display mb-4">Ready to Get Certified?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">Contact us to learn more and enroll in our certification programs.</p>
-          <EnrollCTA />Enroll Now<ArrowRight className="w-5 h-5" /></EnrollCTA>
+          <EnrollButton>Enroll Now</EnrollButton>
         </div>
       </section>
       <Footer />
