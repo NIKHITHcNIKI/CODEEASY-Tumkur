@@ -12,10 +12,10 @@ import Footer from '@/components/Footer';
 const collegeCategories = [
   {
     icon: Code,
-    title: 'Technical',
+    title: 'Technical Certification Programs',
     tagline: 'Master In-Demand Tech Skills',
-    description: 'Industry-ready technical training in core programming languages, AI, cybersecurity, and personality development.',
-    courses: ['Core Languages', 'AI', 'Cyber Security', 'Personality Development'],
+    description: 'Industry-ready certification programs in software development, AI, cybersecurity, cloud computing, and more.',
+    courses: ['Software Dev', 'Cybersecurity', 'AI & ML', 'Cloud & DevOps'],
     duration: '3-6 months',
     audience: 'College & Graduates',
     link: '/courses/technical',
