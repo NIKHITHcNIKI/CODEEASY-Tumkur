@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Palette, Languages, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import artImg from '@/assets/course-art.jpg';
