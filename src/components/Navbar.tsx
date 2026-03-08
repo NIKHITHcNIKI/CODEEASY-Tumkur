@@ -272,19 +272,18 @@ const Navbar = () => {
                     key={item.name}
                     href={item.href}
                     className="text-foreground font-medium py-2 hover:text-primary transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                   >
                     {item.name}
                   </a>
                 )
               ))}
-              <a
-                href="/#contact"
-                className="btn-hero-primary py-3 text-center text-sm"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                className="btn-hero-primary py-3 text-center text-sm w-full"
+                onClick={(e) => handleNavClick(e, '/#contact')}
               >
                 Enroll Now
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
