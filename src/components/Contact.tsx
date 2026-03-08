@@ -16,8 +16,27 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Course Interest:* ${formData.course}%0A*Message:* ${formData.message}`;
-    window.open(`https://wa.me/+919686265526?text=${text}`, '_blank');
+    
+    // Validate inputs
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+    const course = formData.course.trim();
+    const message = formData.message.trim();
+    
+    if (!name || !email || !phone || !course) return;
+    
+    const text = [
+      '*New Inquiry from Website*',
+      '',
+      `*Name:* ${name}`,
+      `*Email:* ${email}`,
+      `*Phone:* ${phone}`,
+      `*Course Interest:* ${course}`,
+      message ? `*Message:* ${message}` : '',
+    ].filter(Boolean).join('\n');
+    
+    window.open(`https://wa.me/+919686265526?text=${encodeURIComponent(text)}`, '_blank');
     setFormData({ name: '', email: '', phone: '', course: '', message: '' });
   };
 
