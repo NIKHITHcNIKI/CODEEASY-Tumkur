@@ -16,8 +16,27 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Course Interest:* ${formData.course}%0A*Message:* ${formData.message}`;
-    window.open(`https://wa.me/+919686265526?text=${text}`, '_blank');
+    
+    // Validate inputs
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const phone = formData.phone.trim();
+    const course = formData.course.trim();
+    const message = formData.message.trim();
+    
+    if (!name || !email || !phone || !course) return;
+    
+    const text = [
+      '*New Inquiry from Website*',
+      '',
+      `*Name:* ${name}`,
+      `*Email:* ${email}`,
+      `*Phone:* ${phone}`,
+      `*Course Interest:* ${course}`,
+      message ? `*Message:* ${message}` : '',
+    ].filter(Boolean).join('\n');
+    
+    window.open(`https://wa.me/+919686265526?text=${encodeURIComponent(text)}`, '_blank');
     setFormData({ name: '', email: '', phone: '', course: '', message: '' });
   };
 
@@ -154,7 +173,7 @@ const Contact = () => {
           >
             <div className="space-y-4">
               <a
-                href="tel:+919876543210"
+                href="tel:+919686265526"
                 className="flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
