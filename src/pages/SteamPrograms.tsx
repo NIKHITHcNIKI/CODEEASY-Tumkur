@@ -36,7 +36,7 @@ const CategoryCard = ({ category, index }: { category: typeof steamCategories[0]
             <div className="flex items-center gap-1.5 text-muted-foreground"><Users className="w-4 h-4 text-primary" /><span>{category.ageGroup}</span></div>
           </div>
           <div className="flex flex-wrap gap-2 mb-4">{category.courses.map((c) => (<span key={c} className="px-2 py-1 text-xs rounded-full bg-muted text-muted-foreground">{c}</span>))}</div>
-          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">{category.link ? 'View Courses' : 'Enquire Now'}<ArrowRight className="w-4 h-4" /></div>
+          <div className="flex items-center gap-1 text-primary font-medium text-sm group-hover:gap-2 transition-all">View Courses<ArrowRight className="w-4 h-4" /></div>
         </div>
       </div>
     </motion.div>
