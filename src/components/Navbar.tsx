@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight, UserCheck } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight, UserCheck, Loader2 } from 'lucide-react';
 import codeEasyIcon from '@/assets/codeeasy-icon.jpg';
 import codeEasyLogo from '@/assets/codeeasy-logo.png';
 
@@ -54,6 +55,9 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,13 +67,51 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Reset loading state when route changes
+  useEffect(() => {
+    setIsNavigating(false);
+  }, [location.pathname]);
+
+  const handleNavClick = useCallback((e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    
+    if (href.startsWith('/#')) {
+      const hash = href.substring(1); // e.g., "#contact"
+      if (location.pathname === '/') {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        setIsNavigating(true);
+        navigate('/' + hash);
+      }
+    } else {
+      setIsNavigating(true);
+      navigate(href);
+    }
+  }, [navigate, location.pathname]);
+
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`navbar-transparent ${isScrolled ? 'navbar-scrolled' : ''}`}
-    >
+    <>
+      {/* Loading bar */}
+      <AnimatePresence>
+        {isNavigating && (
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left"
+          />
+        )}
+      </AnimatePresence>
+
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className={`navbar-transparent ${isScrolled ? 'navbar-scrolled' : ''}`}
+      >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           <motion.a
@@ -117,7 +159,7 @@ const Navbar = () => {
                             const SectionIcon = section.icon;
                             return (
                               <div key={section.category}>
-                                <a href={section.href} className="flex items-center gap-2 mb-3 group">
+                                <a href={section.href} onClick={(e) => { handleNavClick(e, section.href); setIsCoursesOpen(false); }} className="flex items-center gap-2 mb-3 group">
                                   <SectionIcon className="w-4 h-4 text-primary" />
                                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">{section.category}</span>
                                 </a>
@@ -128,6 +170,7 @@ const Navbar = () => {
                                       <a
                                         key={course.name}
                                         href={course.href}
+                                        onClick={(e) => { handleNavClick(e, course.href); setIsCoursesOpen(false); }}
                                         className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-accent transition-colors group"
                                       >
                                         <CourseIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -148,6 +191,7 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -158,14 +202,14 @@ const Navbar = () => {
                 </motion.a>
               )
             ))}
-            <motion.a
-              href="/#contact"
+            <motion.button
+              onClick={(e) => handleNavClick(e, '/#contact')}
               className="btn-hero-primary py-2 px-6 text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Enroll Now
-            </motion.a>
+            </motion.button>
           </div>
 
           <button
@@ -208,11 +252,11 @@ const Navbar = () => {
                         >
                           {courseDropdownItems.map((section) => (
                             <div key={section.category}>
-                              <a href={section.href} className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1 block" onClick={() => setIsMobileMenuOpen(false)}>{section.category}</a>
+                              <a href={section.href} className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1 block" onClick={(e) => handleNavClick(e, section.href)}>{section.category}</a>
                               {section.courses.map((course) => {
                                 const CourseIcon = course.icon;
                                 return (
-                                  <a key={course.name} href={course.href} className="flex items-center gap-2 py-1.5 pl-2 text-sm text-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                  <a key={course.name} href={course.href} className="flex items-center gap-2 py-1.5 pl-2 text-sm text-foreground hover:text-primary transition-colors" onClick={(e) => handleNavClick(e, course.href)}>
                                     <CourseIcon className="w-3.5 h-3.5 text-muted-foreground" />
                                     {course.name}
                                   </a>
@@ -229,24 +273,24 @@ const Navbar = () => {
                     key={item.name}
                     href={item.href}
                     className="text-foreground font-medium py-2 hover:text-primary transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                   >
                     {item.name}
                   </a>
                 )
               ))}
-              <a
-                href="/#contact"
-                className="btn-hero-primary py-3 text-center text-sm"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                className="btn-hero-primary py-3 text-center text-sm w-full"
+                onClick={(e) => handleNavClick(e, '/#contact')}
               >
                 Enroll Now
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
       </div>
-    </motion.nav>
+      </motion.nav>
+    </>
   );
 };
 

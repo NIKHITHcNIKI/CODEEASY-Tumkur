@@ -2,6 +2,8 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import { useContactNavigate } from '@/hooks/useContactNavigate';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import courseTechnicalImg from '@/assets/course-technical-training.jpg';
@@ -86,7 +88,7 @@ const TechnicalPrograms = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold font-display mb-4">Ready to Get Certified?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">Contact us to learn more and enroll in our certification programs.</p>
-          <motion.a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:bg-primary/90" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Enroll Now<ArrowRight className="w-5 h-5" /></motion.a>
+          <EnrollButton>Enroll Now</EnrollButton>
         </div>
       </section>
       <Footer />
