@@ -36,7 +36,7 @@ const LanguageCard = ({ course, index }: { course: typeof languageCourses[0]; in
             <h4 className="font-semibold text-sm">What You'll Learn:</h4>
             {course.features.map((feature) => (<div key={feature} className="flex items-center gap-2 text-sm text-muted-foreground"><CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" /><span>{feature}</span></div>))}
           </div>
-          <motion.a href="/#contact" className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r ${course.color} text-white font-semibold transition-all duration-300 hover:opacity-90`} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Enroll Now<ArrowRight className="w-5 h-5" /></motion.a>
+          <EnrollButton className={`w-full bg-gradient-to-r ${course.color} hover:opacity-90`}>Enroll Now</EnrollButton>
         </div>
       </div>
     </motion.div>
