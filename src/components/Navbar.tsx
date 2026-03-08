@@ -51,6 +51,8 @@ const navItems = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,17 +83,79 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index, duration: 0.4 }}
-                whileHover={{ y: -2 }}
-              >
-                {item.name}
-              </motion.a>
+              item.hasDropdown ? (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => setIsCoursesOpen(true)}
+                  onMouseLeave={() => setIsCoursesOpen(false)}
+                >
+                  <motion.a
+                    href={item.href}
+                    className={`nav-link flex items-center gap-1 ${isScrolled ? 'text-foreground' : 'text-white'}`}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * index, duration: 0.4 }}
+                    whileHover={{ y: -2 }}
+                  >
+                    {item.name}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isCoursesOpen ? 'rotate-180' : ''}`} />
+                  </motion.a>
+
+                  <AnimatePresence>
+                    {isCoursesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50"
+                      >
+                        <div className="bg-popover border border-border rounded-2xl shadow-2xl p-5 w-[600px] grid grid-cols-3 gap-4">
+                          {courseDropdownItems.map((section) => {
+                            const SectionIcon = section.icon;
+                            return (
+                              <div key={section.category}>
+                                <a href={section.href} className="flex items-center gap-2 mb-3 group">
+                                  <SectionIcon className="w-4 h-4 text-primary" />
+                                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">{section.category}</span>
+                                </a>
+                                <div className="space-y-1">
+                                  {section.courses.map((course) => {
+                                    const CourseIcon = course.icon;
+                                    return (
+                                      <a
+                                        key={course.name}
+                                        href={course.href}
+                                        className="flex items-center gap-2.5 px-2 py-2 rounded-lg hover:bg-accent transition-colors group"
+                                      >
+                                        <CourseIcon className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                                        <span className="text-sm text-foreground group-hover:text-primary transition-colors">{course.name}</span>
+                                      </a>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <motion.a
+                  key={item.name}
+                  href={item.href}
+                  className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * index, duration: 0.4 }}
+                  whileHover={{ y: -2 }}
+                >
+                  {item.name}
+                </motion.a>
+              )
             ))}
             <motion.a
               href="/#contact"
@@ -122,16 +186,53 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background rounded-2xl mt-2 p-6 shadow-xl"
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground font-medium py-2 hover:text-primary transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.hasDropdown ? (
+                  <div key={item.name}>
+                    <button
+                      className="flex items-center justify-between w-full text-foreground font-medium py-2 hover:text-primary transition-colors"
+                      onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
+                    >
+                      {item.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileCoursesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <AnimatePresence>
+                      {mobileCoursesOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="pl-3 space-y-3 pb-2"
+                        >
+                          {courseDropdownItems.map((section) => (
+                            <div key={section.category}>
+                              <a href={section.href} className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1 block" onClick={() => setIsMobileMenuOpen(false)}>{section.category}</a>
+                              {section.courses.map((course) => {
+                                const CourseIcon = course.icon;
+                                return (
+                                  <a key={course.name} href={course.href} className="flex items-center gap-2 py-1.5 pl-2 text-sm text-foreground hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                                    <CourseIcon className="w-3.5 h-3.5 text-muted-foreground" />
+                                    {course.name}
+                                  </a>
+                                );
+                              })}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-foreground font-medium py-2 hover:text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
               <a
                 href="/#contact"
