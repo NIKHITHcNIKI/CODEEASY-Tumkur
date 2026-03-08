@@ -5,10 +5,12 @@ import { ArrowLeft, ArrowRight, Clock, Users, CheckCircle, BookOpen } from 'luci
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { getCourseBySlug } from '@/data/courseData';
+import { useContactNavigate } from '@/hooks/useContactNavigate';
 
 const CourseDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const goToContact = useContactNavigate();
   const course = getCourseBySlug(slug || '');
   const modulesRef = useRef(null);
   const modulesInView = useInView(modulesRef, { once: true });
@@ -48,14 +50,14 @@ const CourseDetail = () => {
             <h1 className="text-3xl md:text-5xl font-bold font-display mb-3">{course.title}</h1>
             <p className="text-primary font-medium text-lg mb-4">{course.tagline}</p>
             <p className="text-muted-foreground text-lg max-w-2xl mb-8">{course.description}</p>
-            <motion.a
-              href="/#contact"
+            <motion.button
+              onClick={goToContact}
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg transition-all duration-300 hover:bg-primary/90 shadow-lg"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
               Enroll Now <ArrowRight className="w-5 h-5" />
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
       </section>
@@ -140,14 +142,14 @@ const CourseDetail = () => {
             <h2 className="text-2xl md:text-3xl font-bold font-display mb-4">Ready to Get Started?</h2>
             <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Enroll now and take the first step towards mastering {course.title}. Our expert instructors are ready to guide you.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.a
-                href="/#contact"
+              <motion.button
+                onClick={goToContact}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-bold text-lg transition-all duration-300 hover:bg-primary/90 shadow-lg"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
                 Enroll Now <ArrowRight className="w-5 h-5" />
-              </motion.a>
+              </motion.button>
               <button
                 onClick={() => navigate(course.backLink)}
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-xl border border-border text-foreground font-semibold hover:bg-muted transition-colors"
