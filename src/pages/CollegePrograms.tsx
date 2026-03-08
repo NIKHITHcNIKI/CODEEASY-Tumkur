@@ -7,6 +7,7 @@ import courseTechnicalImg from '@/assets/course-technical-training.jpg';
 import courseFinanceImg from '@/assets/course-finance-detail.jpg';
 import courseCompetitiveImg from '@/assets/course-competitive-exam.jpg';
 import coursePersonalDevImg from '@/assets/course-personal-dev.jpg';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 

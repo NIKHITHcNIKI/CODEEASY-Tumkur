@@ -75,7 +75,7 @@ const SchoolPrograms = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold font-display mb-4">Ready to Start Learning?</h2>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto">Contact us to learn more about our programs and find the perfect fit for your child.</p>
-          <motion.a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all duration-300 hover:bg-primary/90" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>Contact Us<ArrowRight className="w-5 h-5" /></motion.a>
+          <EnrollButton>Contact Us</EnrollButton>
         </div>
       </section>
       <Footer />
