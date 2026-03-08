@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Microscope, GraduationCap, Code, Blocks, Globe, Bot, Calculator, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import gradeImg from '@/assets/course-grade1-10.jpg';
