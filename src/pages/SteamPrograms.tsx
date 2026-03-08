@@ -10,7 +10,7 @@ import languageImg from '@/assets/course-language.jpg';
 
 const steamCategories = [
   { icon: Languages, title: 'Language', tagline: 'Master Multiple Languages', description: 'Comprehensive language courses to help students excel in Kannada, English, and Hindi.', courses: ['Kannada', 'English', 'Hindi'], duration: '3-6 months', ageGroup: 'Class 1-12', image: languageImg, link: '/courses/languages' },
-  { icon: Palette, title: 'Art & Craft', tagline: 'Unleash Creativity', description: 'Explore painting, drawing, sculpture, and mixed media through hands-on creative workshops.', courses: ['Painting', 'Drawing', 'Sculpture', 'Mixed Media', 'Craft Projects'], duration: 'Ongoing', ageGroup: 'All Ages', image: artImg, link: null },
+  { icon: Palette, title: 'Art & Craft', tagline: 'Unleash Creativity', description: 'Explore painting, drawing, sculpture, and mixed media through hands-on creative workshops.', courses: ['Painting', 'Drawing', 'Sculpture', 'Mixed Media', 'Craft Projects'], duration: 'Ongoing', ageGroup: 'All Ages', image: artImg, link: '/course/art-craft' },
 ];
 
 const CategoryCard = ({ category, index }: { category: typeof steamCategories[0]; index: number }) => {
