@@ -31,7 +31,6 @@ const CourseCard = ({ course, index }: { course: typeof personalCourses[0]; inde
       className="group cursor-pointer"
       onClick={() => navigate(`/course/${course.slug}`)}
     >
-    >
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="p-6">
           <div className="flex items-center gap-3 mb-4">
