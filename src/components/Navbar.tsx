@@ -190,6 +190,7 @@ const Navbar = () => {
                 <motion.a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className={`nav-link ${isScrolled ? 'text-foreground' : 'text-white'}`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -200,14 +201,14 @@ const Navbar = () => {
                 </motion.a>
               )
             ))}
-            <motion.a
-              href="/#contact"
+            <motion.button
+              onClick={(e) => handleNavClick(e, '/#contact')}
               className="btn-hero-primary py-2 px-6 text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Enroll Now
-            </motion.a>
+            </motion.button>
           </div>
 
           <button
