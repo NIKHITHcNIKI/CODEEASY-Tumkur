@@ -23,7 +23,7 @@ const courseDropdownItems = [
       { name: 'Technical Certifications', icon: Code, href: '/courses/technical' },
       { name: 'Finance & Accounts', icon: Calculator, href: '/courses/finance' },
       { name: 'Exam Counseling', icon: ClipboardCheck, href: '/courses/exam-counseling' },
-    ],
+      { name: 'Personal Development', icon: UserCheck, href: '/courses/personal-development' },
   },
   {
     category: 'Popular Courses',
