@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight, UserCheck } from 'lucide-react';
 import codeEasyIcon from '@/assets/codeeasy-icon.jpg';
 import codeEasyLogo from '@/assets/codeeasy-logo.png';
 
@@ -23,6 +23,7 @@ const courseDropdownItems = [
       { name: 'Technical Certifications', icon: Code, href: '/courses/technical' },
       { name: 'Finance & Accounts', icon: Calculator, href: '/courses/finance' },
       { name: 'Exam Counseling', icon: ClipboardCheck, href: '/courses/exam-counseling' },
+      { name: 'Personal Development', icon: UserCheck, href: '/courses/personal-development' },
     ],
   },
   {

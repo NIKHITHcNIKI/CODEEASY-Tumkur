@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Briefcase, Code, IndianRupee, GraduationCap, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import { Briefcase, Code, IndianRupee, GraduationCap, UserCheck, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
 import courseTechnicalImg from '@/assets/course-technical-training.jpg';
 import courseFinanceImg from '@/assets/course-finance-detail.jpg';
 import courseCompetitiveImg from '@/assets/course-competitive-exam.jpg';
+import coursePersonalDevImg from '@/assets/course-personal-dev.jpg';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -42,6 +43,17 @@ const collegeCategories = [
     audience: 'Graduates',
     link: '/courses/exam-counseling',
     image: courseCompetitiveImg,
+  },
+  {
+    icon: UserCheck,
+    title: 'Personal Development Programs',
+    tagline: 'Unlock Your Full Potential',
+    description: 'Build essential soft skills including communication, leadership, public speaking, and personality development.',
+    courses: ['Communication', 'Leadership', 'Public Speaking', 'Personality Dev'],
+    duration: '2-4 months',
+    audience: 'All Students',
+    link: '/courses/personal-development',
+    image: coursePersonalDevImg,
   },
 ];
 
