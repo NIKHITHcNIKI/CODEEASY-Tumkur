@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight, UserCheck } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight, UserCheck, Loader2 } from 'lucide-react';
 import codeEasyIcon from '@/assets/codeeasy-icon.jpg';
 import codeEasyLogo from '@/assets/codeeasy-logo.png';
 
