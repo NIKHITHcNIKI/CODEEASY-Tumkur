@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, ArrowLeft, ArrowRight, Clock, Users } from 'lucide-react';
+import { useContactNavigate } from '@/hooks/useContactNavigate';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import courseTechnicalImg from '@/assets/course-technical-training.jpg';
