@@ -28,7 +28,9 @@ const CourseCard = ({ course, index }: { course: typeof personalCourses[0]; inde
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group"
+      className="group cursor-pointer"
+      onClick={() => navigate(`/course/${course.slug}`)}
+    >
     >
       <div className="relative rounded-2xl overflow-hidden bg-card border border-border transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/30 h-full">
         <div className="p-6">
