@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserCheck, MessageCircle, Mic, Users, Brain, Target, Sparkles, ArrowLeft, ArrowRight, Clock, CheckCircle } from 'lucide-react';
+import EnrollButton from '@/components/EnrollButton';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import coursePersonalDevImg from '@/assets/course-personal-dev.jpg';
