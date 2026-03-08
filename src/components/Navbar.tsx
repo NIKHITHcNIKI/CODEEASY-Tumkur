@@ -1,12 +1,47 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight } from 'lucide-react';
 import codeEasyIcon from '@/assets/codeeasy-icon.jpg';
 import codeEasyLogo from '@/assets/codeeasy-logo.png';
 
+const courseDropdownItems = [
+  {
+    category: 'School Programs (Class 1–12)',
+    icon: GraduationCap,
+    href: '/courses/school',
+    courses: [
+      { name: 'STEM Learning', icon: Cpu, href: '/courses/stem' },
+      { name: 'STEAM Programs', icon: FlaskConical, href: '/courses/steam' },
+      { name: 'Language Courses', icon: Languages, href: '/courses/languages' },
+    ],
+  },
+  {
+    category: 'College & Graduate Programs',
+    icon: Briefcase,
+    href: '/courses/college',
+    courses: [
+      { name: 'Technical Certifications', icon: Code, href: '/courses/technical' },
+      { name: 'Finance & Accounts', icon: Calculator, href: '/courses/finance' },
+      { name: 'Exam Counseling', icon: ClipboardCheck, href: '/courses/exam-counseling' },
+    ],
+  },
+  {
+    category: 'Popular Courses',
+    icon: Monitor,
+    href: '/#courses',
+    courses: [
+      { name: 'AI & Machine Learning', icon: Brain, href: '/courses/technical/ai' },
+      { name: 'Cybersecurity', icon: Shield, href: '/courses/technical/cyber-security' },
+      { name: 'Software Development', icon: Monitor, href: '/courses/technical' },
+      { name: 'Digital Marketing', icon: Megaphone, href: '/courses/technical' },
+      { name: 'Cloud Computing & DevOps', icon: Cloud, href: '/courses/technical' },
+    ],
+  },
+];
+
 const navItems = [
   { name: 'Home', href: '/#home' },
-  { name: 'Courses', href: '/#courses' },
+  { name: 'Courses', href: '/#courses', hasDropdown: true },
   { name: 'Reviews', href: '/#reviews' },
   { name: 'Gallery', href: '/testimonials' },
   { name: 'About Us', href: '/#about' },
