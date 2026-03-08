@@ -2,11 +2,13 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
+import { useContactNavigate } from '@/hooks/useContactNavigate';
 import ctaBg from '@/assets/cta-bg.jpg';
 
 const CTASection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const goToContact = useContactNavigate();
 
   return (
     <section
@@ -31,24 +33,24 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              href="#contact"
+            <motion.button
+              onClick={goToContact}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <MessageCircle className="w-5 h-5" />
               Enroll Now
-            </motion.a>
-            <motion.a
-              href="#contact"
+            </motion.button>
+            <motion.button
+              onClick={goToContact}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-foreground font-semibold hover:bg-white/90 transition-all"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-5 h-5" />
               Contact Us Today
-            </motion.a>
+            </motion.button>
           </div>
         </motion.div>
       </div>
