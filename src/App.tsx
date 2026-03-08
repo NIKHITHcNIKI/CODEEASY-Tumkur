@@ -17,6 +17,7 @@ import AICourses from "./pages/AICourses";
 import CyberSecurityCourses from "./pages/CyberSecurityCourses";
 import TestimonialsGallery from "./pages/TestimonialsGallery";
 import PersonalDevelopment from "./pages/PersonalDevelopment";
+import CourseDetail from "./pages/CourseDetail";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
