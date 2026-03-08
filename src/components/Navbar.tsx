@@ -92,12 +92,26 @@ const Navbar = () => {
   }, [navigate, location.pathname]);
 
   return (
-    <motion.nav
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`navbar-transparent ${isScrolled ? 'navbar-scrolled' : ''}`}
-    >
+    <>
+      {/* Loading bar */}
+      <AnimatePresence>
+        {isNavigating && (
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="fixed top-0 left-0 right-0 h-1 bg-primary z-[60] origin-left"
+          />
+        )}
+      </AnimatePresence>
+
+      <motion.nav
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className={`navbar-transparent ${isScrolled ? 'navbar-scrolled' : ''}`}
+      >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-20">
           <motion.a
