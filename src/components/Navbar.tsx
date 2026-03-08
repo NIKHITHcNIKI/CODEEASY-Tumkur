@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, GraduationCap, Briefcase, Code, Brain, Shield, Monitor, Megaphone, Bug, Server, Palette, Globe, Cloud, BookOpen, Cpu, FlaskConical, Languages, Calculator, ClipboardCheck, ChevronDown, ChevronRight, UserCheck } from 'lucide-react';
 import codeEasyIcon from '@/assets/codeeasy-icon.jpg';
 import codeEasyLogo from '@/assets/codeeasy-logo.png';
 
