@@ -159,7 +159,7 @@ const Navbar = () => {
                             const SectionIcon = section.icon;
                             return (
                               <div key={section.category}>
-                                <a href={section.href} className="flex items-center gap-2 mb-3 group">
+                                <a href={section.href} onClick={(e) => { handleNavClick(e, section.href); setIsCoursesOpen(false); }} className="flex items-center gap-2 mb-3 group">
                                   <SectionIcon className="w-4 h-4 text-primary" />
                                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">{section.category}</span>
                                 </a>
